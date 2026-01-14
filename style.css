@@ -164,6 +164,7 @@ body.dark-mode {
 .highscore-display {
     font-size: 1.1rem;
     min-height: 25px;
+    margin-bottom: 20px;
 }
 
 .about-section {
