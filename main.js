@@ -1,6 +1,5 @@
 const gameArea = document.getElementById('game-area');
 const message = document.getElementById('message');
-const result = document.getElementById('result');
 const highscoreForm = document.getElementById('highscore-form');
 const playerNameInput = document.getElementById('player-name');
 const submitScoreBtn = document.getElementById('submit-score');
@@ -53,19 +52,14 @@ function startGoPhase() {
 }
 
 function handleGameAreaClick() {
-    if (state === 'waiting' || state === 'tooSoon') {
+    if (state === 'waiting' || state === 'tooSoon' || state === 'result') {
         setGameState('ready');
-        result.textContent = '';
-        highscoreForm.classList.add('hidden');
-    } else if (state === 'result') {
-        setGameState('waiting');
-        result.textContent = '';
         highscoreForm.classList.add('hidden');
     } else if (state === 'ready') {
         setGameState('tooSoon');
     } else if (state === 'go') {
         const reactionTime = Date.now() - startTime;
-        result.textContent = `${reactionTime}ms`;
+        message.textContent = `${reactionTime}ms`;
         setGameState('result');
         checkHighscore(reactionTime);
     }
@@ -74,7 +68,7 @@ function handleGameAreaClick() {
 function checkHighscore(currentTime) {
     if (currentTime < bestScore) {
         bestScore = currentTime;
-        result.textContent += ' - 신기록 달성!';
+        message.textContent += ' - 신기록 달성!';
         highscoreForm.classList.remove('hidden');
         playerNameInput.focus();
     }
