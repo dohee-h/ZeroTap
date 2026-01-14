@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroTap - No Time to Think</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2650192547767128"
+     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +15,7 @@
     <header class="header">
         <h1 class="title">ZeroTap</h1>
         <p class="subtitle">No Time to Think</p>
+        <button id="help-button" class="help-button">❓</button>
     </header>
 
     <main id="game-container" class="game-container">
@@ -34,6 +37,20 @@
     <button id="theme-toggle" class="theme-toggle">
         ☀️
     </button>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>게임 방법</h2>
+            <p>1. 화면의 아무 곳이나 터치하여 게임을 시작하세요.</p>
+            <p>2. "준비..." 메시지가 사라지고 화면 색상이 녹색으로 바뀌면 즉시 화면을 터치하세요.</p>
+            <p>3. 터치하기까지 걸린 시간이 밀리초(ms) 단위로 표시됩니다.</p>
+            <p>4. 만약 신기록을 달성하면 이름을 입력하여 저장할 수 있습니다.</p>
+            <p>5. "너무 빨라요!" 메시지가 나오면 신호가 나오기 전에 터치한 것입니다. 다시 시도하세요!</p>
+        </div>
+    </div>
+    <!-- End Help Modal -->
 
     <script src="main.js"></script>
 </body>

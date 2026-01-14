@@ -6,6 +6,9 @@ const playerNameInput = document.getElementById('player-name');
 const submitScoreBtn = document.getElementById('submit-score');
 const highscoreDisplay = document.getElementById('highscore-display');
 const themeToggle = document.getElementById('theme-toggle');
+const helpButton = document.getElementById('help-button');
+const helpModal = document.getElementById('help-modal');
+const closeButton = document.querySelector('.close-button');
 
 let state = 'waiting'; // waiting, ready, go, result, tooSoon
 let timerId = null;
@@ -110,6 +113,17 @@ playerNameInput.addEventListener('keyup', (e) => {
     }
 });
 themeToggle.addEventListener('click', toggleTheme);
+helpButton.addEventListener('click', () => {
+    helpModal.classList.remove('hidden');
+});
+closeButton.addEventListener('click', () => {
+    helpModal.classList.add('hidden');
+});
+window.addEventListener('click', (event) => {
+    if (event.target === helpModal) {
+        helpModal.classList.add('hidden');
+    }
+});
 
 
 // Initial Setup
