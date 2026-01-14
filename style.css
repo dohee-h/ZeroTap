@@ -1,1 +1,193 @@
-/* Add styles here */
+:root {
+    --bg-color-light: #f0f0f0;
+    --text-color-light: #1a1a1a;
+    --accent-color-light: #007aff;
+    --secondary-bg-light: #ffffff;
+    --ready-color-light: #ff9500;
+    --go-color-light: #34c759;
+    --error-color-light: #ff3b30;
+
+    --bg-color-dark: #1c1c1e;
+    --text-color-dark: #f2f2f7;
+    --accent-color-dark: #0a84ff;
+    --secondary-bg-dark: #2c2c2e;
+    --ready-color-dark: #ff9f0a;
+    --go-color-dark: #30d158;
+    --error-color-dark: #ff453a;
+
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+    --accent-color: var(--accent-color-light);
+    --secondary-bg: var(--secondary-bg-light);
+    --ready-color: var(--ready-color-light);
+    --go-color: var(--go-color-light);
+    --error-color: var(--error-color-light);
+
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --secondary-bg: var(--secondary-bg-dark);
+    --ready-color: var(--ready-color-dark);
+    --go-color: var(--go-color-dark);
+    --error-color: var(--error-color-dark);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+.header, .footer {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin: 5px 0 0;
+    opacity: 0.8;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.game-area {
+    width: 90%;
+    max-width: 500px;
+    height: 60vh;
+    max-height: 400px;
+    background-color: var(--secondary-bg);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.game-area.wait {
+    background-color: var(--secondary-bg);
+}
+.game-area.ready {
+    background-color: var(--ready-color);
+}
+.game-area.go {
+    background-color: var(--go-color);
+}
+.game-area.error {
+    background-color: var(--error-color);
+}
+
+.message {
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 20px;
+}
+
+.tagline {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+.result {
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-height: 30px;
+    margin-bottom: 10px;
+}
+
+.highscore-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.highscore-form.hidden {
+    display: none;
+}
+
+#player-name {
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#submit-score {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.highscore-display {
+    font-size: 1.1rem;
+    min-height: 25px;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .message {
+        font-size: 1.5rem;
+    }
+    .result {
+        font-size: 1.3rem;
+    }
+}
